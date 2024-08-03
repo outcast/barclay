@@ -1,0 +1,6 @@
+Gemini:
+------------
+orbiting spheres: two spheres, one green and one blue, that orbit each other in view of the camera
+bouncing ball 1: a continuing blue bouncing ball
+bouncing ball 2: a continous green bouncing ball
+ripple simulation: a simulation of the surface of water with a ripple rate of 10Hz

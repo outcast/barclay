@@ -5,9 +5,42 @@
 		<title>My first three.js app</title>
 		<style>
 			body { margin: 0; }
+            #three_canvas {
+                height: 100%;
+                width: 100%;
+                border: 0;
+                background-color: black;
+            }
+            #three_console {
+                height: 100%;
+                min-height: 150px;
+                width: 100%;
+                border: 0;
+                background-color: rgb(166, 166, 167);
+                scroll-behavior: smooth;
+            }
 		</style>
+        <script type="importmap">
+            {
+                "imports": {
+                    "three": "https://cdn.jsdelivr.net/npm/three@0.167.1/build/three.module.js",
+                    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.167.1/examples/jsm/"
+                }
+            }
+        </script>
 	</head>
 	<body>
-		<script type="module" src="/main.js"></script>
+        <script type="module">
+            import  { askGemini } from "./gemini.js";
+            let defaultDomState = document.body.innerHTML;
+            window.askGemini = (s) => {
+                document.body.innerHTML = defaultDomState;
+                askGemini().then(objectFunction => {
+                    objectFunction(s);
+                });
+            }
+        </script>
+        <canvas id="three_canvas"></canvas>
+        <textarea id="three_console" readonly></textarea>
 	</body>
 </html>
