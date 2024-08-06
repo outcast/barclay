@@ -31,11 +31,23 @@
 	</head>
 	<body>
         <script type="module">
-            import  { askGemini } from "./gemini.js";
+            import { askGemini } from "./gemini.js";
+            import { askOpenAI } from "./openai.js";
+            // import * as THREE from 'three';
+            // import { OBJLoader } from 'three/addons/loaders/OBJLoader.js';
+            // import { FontLoader } from 'three/addons/loaders/FontLoader.js';
+            // import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
             let defaultDomState = document.body.innerHTML;
             window.askGemini = (s) => {
                 document.body.innerHTML = defaultDomState;
                 askGemini().then(objectFunction => {
+                    objectFunction(s);
+                });
+            }
+
+            window.askOpenAI = (s) => {
+                document.body.innerHTML = defaultDomState;
+                askOpenAI().then(objectFunction => {
                     objectFunction(s);
                 });
             }
